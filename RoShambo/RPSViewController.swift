@@ -32,7 +32,11 @@ class RPSViewController: UIViewController {
             case self.rockButton:
                 let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
                 vc.userChoice = getUserShape(sender)
-                presentViewController(vc, animated: true, completion: nil)
+                if let navController = self.navigationController {
+                    navController.pushViewController(vc, animated: true)
+                } else {
+                   presentViewController(vc, animated: true, completion: nil)
+                }
             
                 // MARK: Segue with code
             case self.paperButton:

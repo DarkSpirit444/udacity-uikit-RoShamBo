@@ -70,6 +70,10 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func playAgainButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        // dismissViewControllerAnimated(true, completion: nil)
+        
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
     }
 }
